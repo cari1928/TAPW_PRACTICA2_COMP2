@@ -28,10 +28,6 @@
       </tr>
     </thead>
     <tfoot>
-      <td>
-        <a href="{{ path('practica2_editar', {'id':p.id}) }}"><span class="glyphicon glyphicon-edit"></span> </a>
-        <a href="{{ path('practica2_eliminar', {'id':p.id}) }}"><span class="glyphicon glyphicon-trash"></span> </a>
-      </td>
     </tfoot>
   </table>
 {% endblock %}
@@ -39,7 +35,7 @@
 {% block javascripts %}
   <script type="text/javascript">
     $(document).ready(function() {
-      $('#example').DataTable( {
+      var table = $('#example').DataTable( {
         "ajax": "{{ path('practica2_data') }}",
         "columns": [
             { "data": "code" },         { "data": "name" },
@@ -49,8 +45,26 @@
             { "data": "gnp" },          { "data": "gnpold" },
             { "data": "localname" },    { "data": "governmentform" },
             { "data": "headofstate" },  { "data": "capital" },
-            { "data": "code2" }
+            { "data": "code2" },
+            {
+              "data": "null", // can be null or undefined
+              "defaultContent": '<a class="btn btn-success" href="#"><span class="glyphicon glyphicon-edit"></span></a> <button class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> </button>'
+            }
         ]
+      } );
+
+      $('#example tbody').on( 'click', 'a', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        // window.location.href = "{{ path('practica2_editar', {'id': "+data['code']+"}) }}";
+        console.log(data['code']);
+        window.location.href = "{{ path('practica2_editar', {'id': 5 }) }}";
+      } );
+
+      $('#example tbody').on( 'click', 'button', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        // window.location.href = "{{ path('practica2_eliminar', {'id': "+data['code']+"}) }}";
+        console.log(data['code']);
+        window.location.href = "{{ path('practica2_eliminar', {'id': 8 }) }}";
       } );
     } );
   </script>

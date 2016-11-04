@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Alta de Lenguaje{% endblock %}
+
+{% block body %}
+<div class="panel panel-default" style="margin:20px">
+  <div class="panel-heading">
+    <h2 class="panel-title"> Nueva Lengua </h2>
+  </div>
+  <div class="panel-body">
+    {{ form_start(formulario) }}
+      <div class="form-group">
+        {{ form_row(formulario.language, {'attr':{'class':'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_row(formulario.percentage, {'attr':{'class':'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_row(formulario.isofficial, {'attr':{'class':'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_row(formulario.countrycode, {'attr':{'class':'form-control'}}) }}
+      </div>
+      {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-primary'}}) }}
+    {{ form_end(formulario) }}
+  </div>
+</div>
+{% endblock %}

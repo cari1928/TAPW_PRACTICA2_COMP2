@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<br>
+  <div class="form-group">
+    <a href="nuevo_pl" class="btn btn-primary">Nueva Lengua</a>
+  </div>
+
+  <table id="example" class="display table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Is Official</th>
+        <th>Percentage</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tfoot>
+    </tfoot>
+  </table>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var table = $('#example').DataTable( {
+        "ajax": "{{ path('practica2_data_pl') }}",
+        "columns": [
+            { "data": "language" },     { "data": "isofficial" },
+            { "data": "percentage" },   { "data": "countrycode" },
+        ]
+      } );
+    } );
+  </script>
+{% endblock %}

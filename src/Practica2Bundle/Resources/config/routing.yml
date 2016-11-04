@@ -2,13 +2,25 @@ practica2_lista:
     path:     /lista
     defaults: { _controller: Practica2Bundle:Default:lista }
 
+practica2_lista_pl:
+    path:     /lista_pl
+    defaults: { _controller: Practica2Bundle:Default:listapl }
+
 practica2_data:
     path:     /data
     defaults: { _controller: Practica2Bundle:Default:data }
 
+practica2_data_pl:
+    path:     /data_pl
+    defaults: { _controller: Practica2Bundle:Default:datapl }
+
 practica2_nuevo:
     path:     /nuevo
     defaults: { _controller: Practica2Bundle:Default:nuevo }
+
+practica2_nuevo_pl:
+    path:     /nuevo_pl
+    defaults: { _controller: Practica2Bundle:Default:nuevopl }
 
 practica2_editar:
     path:     /lista/editar/{id}

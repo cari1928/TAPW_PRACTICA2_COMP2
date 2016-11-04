@@ -1,0 +1,36 @@
+Practica2Bundle\Entity\Countrylanguage:
+    type: entity
+    table: countrylanguage
+    indexes:
+        IDX_69DFC8A51561FF3:
+            columns:
+                - countrycode
+    id:
+        language:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+            id: true
+    fields:
+        isofficial:
+            type: boolean
+            nullable: false
+        percentage:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    oneToOne:
+        countrycode:
+            targetEntity: Country
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                countrycode:
+                    referencedColumnName: code
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<br>
+  <div class="form-group">
+    <a href="nuevo" class="btn btn-primary">Nuevo Registro</a>
+  </div>
+
+  <table id="example" class="display table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>Surface Area</th>
+        <th>Independence Year</th>
+        <th>Population</th>
+        <th>Life Expectancy</th>
+        <th>Gnp</th>
+        <th>Gnp Old</th>
+        <th>Localname</th>
+        <th>Government Form</th>
+        <th>Head of State</th>
+        <th>Capital</th>
+        <th>Code 2</th>
+        <th> Opciones </th>
+      </tr>
+    </thead>
+    <tfoot>
+      <td>
+        <a href="{{ path('practica2_editar', {'id':p.id}) }}"><span class="glyphicon glyphicon-edit"></span> </a>
+        <a href="{{ path('practica2_eliminar', {'id':p.id}) }}"><span class="glyphicon glyphicon-trash"></span> </a>
+      </td>
+    </tfoot>
+  </table>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#example').DataTable( {
+        "ajax": "{{ path('practica2_data') }}",
+        "columns": [
+            { "data": "code" },         { "data": "name" },
+            { "data": "continent" },    { "data": "region" },
+            { "data": "surfacearea" },  { "data": "indepyear" },
+            { "data": "population" },   { "data": "lifeexpectancy" },
+            { "data": "gnp" },          { "data": "gnpold" },
+            { "data": "localname" },    { "data": "governmentform" },
+            { "data": "headofstate" },  { "data": "capital" },
+            { "data": "code2" }
+        ]
+      } );
+    } );
+  </script>
+{% endblock %}

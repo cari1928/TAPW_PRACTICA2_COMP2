@@ -1,0 +1,37 @@
+Practica2Bundle\Entity\City:
+    type: entity
+    table: city
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        countrycode:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: true
+        district:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        population:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

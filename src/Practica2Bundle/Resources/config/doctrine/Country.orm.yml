@@ -1,0 +1,102 @@
+Practica2Bundle\Entity\Country:
+    type: entity
+    table: country
+    indexes:
+        IDX_5373C966307CBAA6:
+            columns:
+                - capital
+    id:
+        code:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: true
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        continent:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        region:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        surfacearea:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        indepyear:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        population:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        lifeexpectancy:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        gnp:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        gnpold:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        localname:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        governmentform:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        headofstate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        code2:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: true
+    manyToOne:
+        capital:
+            targetEntity: City
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                capital:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

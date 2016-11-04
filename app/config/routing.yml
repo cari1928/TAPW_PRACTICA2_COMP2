@@ -1,0 +1,7 @@
+practica2:
+    resource: "@Practica2Bundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

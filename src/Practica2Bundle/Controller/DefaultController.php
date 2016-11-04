@@ -13,6 +13,10 @@ use Symfony\Doctrine\Common\Util\Debug;
 
 class DefaultController extends Controller
 {
+    public function indexAction() {
+        return $this->render('Practica2Bundle:Default:index.html.twig');
+    }
+
     public function listaAction() {
         return $this->render('Practica2Bundle:Default:lista.html.twig');
     }
